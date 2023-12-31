@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnMouseOutEvent</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
+
+        #ContainerBox{
+            width:300px;
+            height:300px;
+            border-radius: 50%;
+            background-color: #c91414;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>On Mouse Out Background Color Changes</h1>
+    <div id="ContainerBox">
+    </div>
+    
+
+    <script>
+        var element = document.getElementById('ContainerBox');
+        element.addEventListener('mouseout', function() {
+            element.style.backgroundColor = 'blue';
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnKeyPressEvent</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Press any key to generate a random 5-letter word</h1>
+    <h2>RandomWord</h2>
+    <h3 id="randomWord"></h3>
+
+    <script>
+        document.addEventListener('keydown', function(){
+            var words = ['apple', 'grape', 'table', 'brush', 'chair', 'happy', 'cloud', 'music', 'tower', 'zebra']; 
+
+            var randomIndex = Math.floor(Math.random() * words.length);
+            var randomWord = words[randomIndex];
+            var finalWord=document.getElementById('randomWord')
+            finalWord.textContent =randomWord;
+            finalWord.style.color='red';
+            finalWord.style.fontSize='38px';
+        });
+    </script>
+</body>
+</html>

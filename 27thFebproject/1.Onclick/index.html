@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnclickEvent</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap:20px;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
+
+        #ContainerBox{
+            width:300px;
+            height:200px;
+            border-radius: 15px;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+        }
+
+        button{
+            width:170px;
+            height:35px;
+            font-size: 20px;
+            outline:none;
+            border:none;
+            border-radius: 10px;
+            background-color: #9be8cc;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Change Color In A Single Click</h1>
+    <div id="ContainerBox">
+    </div>
+    <button onclick="ChangeColor()">Change Color</button>
+    
+
+    <script>
+        function ChangeColor() {
+            const randomColor = RandomColor();
+            document.getElementById('ContainerBox').style.backgroundColor = randomColor;
+        }
+
+        function RandomColor() {
+            return '#' + Math.floor(Math.random() * 16777215).toString(16);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyUp/DownEvent</title>
+  <style>
+    #container {
+      display: flex;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .compartment {
+      flex-grow: 1;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Press the ArrowUp key to fill compartments from left to right and ArrowDown key to fill in reverse right to left</h1>
+<div id="container"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('container');
+    const totalCompartments = 10;
+    let currentCompartment = 0;
+
+    // Create compartments
+    for (let i = 0; i < totalCompartments; i++) {
+      const compartment = document.createElement('div');
+      compartment.classList.add('compartment');
+      container.appendChild(compartment);
+    }
+
+    // Handle key presses
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowUp') {
+        fillNextCompartment();
+      } else if (event.key === 'ArrowDown') {
+        fillPreviousCompartment();
+      }
+    });
+
+    // Function to fill the next compartment
+    function fillNextCompartment() {
+      if (currentCompartment < totalCompartments) {
+        const compartment = container.children[currentCompartment];
+        compartment.style.backgroundColor = getRandomColor();
+        currentCompartment++;
+      }
+    }
+
+    // Function to fill the previous compartment in reverse
+    function fillPreviousCompartment() {
+      if (currentCompartment > 0) {
+        currentCompartment--;
+        const compartment = container.children[currentCompartment];
+        compartment.style.backgroundColor = getRandomColor();
+      }
+    }
+
+    // Function to generate a random color
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  });
+</script>
+
+</body>
+</html>
